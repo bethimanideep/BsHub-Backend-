@@ -59,9 +59,10 @@ router.post("/deleteimages",async(req,res)=>{
                 up.push(a[i])
             }
         }
+        console.log(up,user,a);
         await model.findOneAndUpdate({email:arr[0]},{importedimages:up})
+        res.json(up)
     }
-    res.json(up)
 })
 
 module.exports={

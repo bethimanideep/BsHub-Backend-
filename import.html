@@ -179,18 +179,13 @@
             createdata(res)
             console.log(res);
         })
-    function createdata(data, c) {
+    function createdata(data) {
         images.innerHTML = null
         for (let i = data.length - 1; i >= 0; i--) {
             let div = document.createElement("div")
-            let input = document.createElement("input")
             let del = document.createElement("button")
             let img = document.createElement("img")
             img.setAttribute("src", data[i])
-            if (c) {
-                input.setAttribute("type", "checkbox")
-                div.append(input, img)
-            }
             del.innerText = "DELETE"
             div.append(img, del)
             images.append(div)
