@@ -169,7 +169,7 @@
     fetch("https://bored-pink-chiton.cyclic.app/getimages")
         .then(res => res.json())
         .then((res) => {
-            createdata(res,5)
+            createdata(res)
             console.log(res);
         })
     function createdata(data, c) {
