@@ -191,7 +191,7 @@
                 input.setAttribute("type", "checkbox")
                 div.append(input, img)
             }
-            del.innerText="DELETE"
+            del.innerText = "DELETE"
             div.append(img, del)
             images.append(div)
             del.addEventListener("click", () => {
@@ -200,15 +200,10 @@
                 }
                 fetch("https://bored-pink-chiton.cyclic.app/deleteimages", {
                     method: "POST",
-                    headers:{
-                        "Content-Type":"application/json"
+                    headers: {
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then((res) => {
-                    // createdata(res)
-                    console.log(res);
                 })
             })
         }

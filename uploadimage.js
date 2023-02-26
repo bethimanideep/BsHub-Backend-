@@ -52,7 +52,13 @@ router.post("/deleteimages",async(req,res)=>{
     let index=req.body.index
     let user=await model.findOne({email:arr[0]})
     if(user){
-        await model.findOneAndDelete({email:arr[0]},{importedimages:importedimages[index]})
+        let a=user.importedimages
+        let up=a.filter(ele,i=>{
+            if(index!=i){
+                return true
+            }
+        })
+        await model.findOneAndUpdate({email:arr[0]},{importedimages:up})
     }
     res.json("deleted")
 })
