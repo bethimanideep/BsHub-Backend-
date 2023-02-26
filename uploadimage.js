@@ -67,6 +67,7 @@ router.post("/deleteimages",async(req,res)=>{
 router.post("/accountdelete",async(req,res)=>{
     let email=req.body.email
     let user=await model.findOne({email:email})
+    console.log(user,email);
     if(user){
         await model.findOneAndDelete({email})
         res.json("success")
