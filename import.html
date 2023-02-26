@@ -148,7 +148,7 @@
                 }
                 let p = false
                 let f = async (data) => {
-                    await fetch("http://localhost:5000/imgbb", {
+                    await fetch("https://bored-pink-chiton.cyclic.app/imgbb", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -166,7 +166,7 @@
             window.location.reload()
         }, 1000)
     })
-    fetch("http://localhost:5000/getimages")
+    fetch("https://bored-pink-chiton.cyclic.app/getimages")
         .then(res => res.json())
         .then((res) => {
             createdata(res,5)
