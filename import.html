@@ -82,6 +82,14 @@
         #images::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 255, 0.474);
         }
+        #del{
+            background-color: red;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 3% 5% 3% 5%;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -131,7 +139,7 @@
     let file = document.getElementById("file")
     let sub = document.getElementById("sub")
     let images = document.getElementById("images")
-    
+
     f.addEventListener("submit", async (e) => {
         e.preventDefault()
         let form = new FormData()
@@ -180,6 +188,7 @@
             let img = document.createElement("img")
             img.setAttribute("src", data[i])
             del.innerText = "DELETE"
+            del.setAttribute("id","del")
             div.append(img, del)
             images.append(div)
             del.addEventListener("click", () => {
