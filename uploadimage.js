@@ -64,6 +64,17 @@ router.post("/deleteimages",async(req,res)=>{
         res.json(up)
     }
 })
+router.post("/accountdelete",async(req,res)=>{
+    let email=req.body.email
+    let user=await model.findOne({email:email})
+    if(user){
+        await model.findOneAndDelete({email})
+        res.json("success")
+    }else{
+        res.json("Invalid Credentials")
+    }
+})
+
 
 module.exports={
     router,
