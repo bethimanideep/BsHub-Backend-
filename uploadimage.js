@@ -48,6 +48,14 @@ router.get("/cleararr",async(req,res)=>{
     console.log(arr);
     res.json()    
 })
+router.post("/deleteimages",async(req,res)=>{
+    let index=req.body.index
+    let user=await model.findOne({email:arr[0]})
+    if(user){
+        await model.findOneAndDelete({email:arr[0]},{importedimages:importedimages[index]})
+    }
+    res.json("deleted")
+})
 
 module.exports={
     router,

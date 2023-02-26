@@ -133,7 +133,11 @@
     let f = document.getElementById("form")
     let file = document.getElementById("file")
     let sub = document.getElementById("sub")
+    let btn = document.getElementById("btn")
     let images = document.getElementById("images")
+    btn.addEventListener("click", () => {
+
+    })
 
     f.addEventListener("submit", async (e) => {
         e.preventDefault()
@@ -180,14 +184,29 @@
         for (let i = data.length - 1; i >= 0; i--) {
             let div = document.createElement("div")
             let input = document.createElement("input")
+            let del = document.createElement("delete")
             let img = document.createElement("img")
             img.setAttribute("src", data[i])
             if (c) {
                 input.setAttribute("type", "checkbox")
                 div.append(input, img)
             }
-            div.append(img)
+            div.append(img, del)
             images.append(div)
+            del.addEventListener("click", () => {
+                let data = {
+                    index: i
+                }
+                fetch("https://bored-pink-chiton.cyclic.app/deleteimages", {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then((res) => {
+                    // createdata(res)
+                    console.log(res);
+                })
+            })
         }
 
     }
